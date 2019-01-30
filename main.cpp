@@ -1,5 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
+#include <iostream>
+#include "Player.h"
+#include "Goal.h"
+#include "Obsticle.h"
+
 
 using namespace std;
 using namespace sf;
@@ -18,7 +23,7 @@ int main()
     sf:: CircleShape goal(25.f);
 
     goal.setFillColor(sf::Color::Blue);
-    goal.setPosition(450.0f, 450.0f);
+    goal.setPosition(250.0f, 450.0f);
 
     sf::RectangleShape obstacle(Vector2f(25,25));
 
@@ -73,7 +78,9 @@ int main()
 
 
         window.display();
-        player.move(0.1f,0.1f);
+        Player p1(player.getPosition());
+    p1.new_pos(goal.getPosition());
+        player.setPosition(p1.player_pos);
         window.clear();
 
         window.draw(player);
@@ -84,6 +91,8 @@ int main()
 
         window.display();
     }
+
+
 
     return 0;
 }
