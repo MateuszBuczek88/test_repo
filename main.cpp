@@ -11,7 +11,7 @@ using namespace std;
 using namespace sf;
 
 void generate_obstacle(RectangleShape &object, float pos_x, float pos_y);
-Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos);
+Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_post);
 
 int main()
 {
@@ -29,7 +29,7 @@ int main()
 
     sf::RectangleShape obstacle(Vector2f(25,25));
 
-    obstacle.setPosition(150.0f,100.0f);
+    obstacle.setPosition(90.0f,200.0f);
     obstacle.setFillColor(Color::Yellow);
 
     RectangleShape obstacle2;
@@ -82,23 +82,23 @@ int main()
         window.draw(player);
         window.draw(goal);
         window.draw(obstacle);
-        window.draw(obstacle2);
-        window.draw(obstacle3);
+     //  window.draw(obstacle2);
+      //  window.draw(obstacle3);
 
 
         window.display();
 
         // Player p1(player.getPosition());
         //p1.new_pos(goal.getPosition());
-        player.move(calc_dir(player.getPosition(),goal.getPosition()));
+        player.move(calc_dir(player.getPosition(),goal.getPosition(),obstacle.getPosition()));
 
         window.clear();
 
         window.draw(player);
         window.draw(goal);
         window.draw(obstacle);
-        window.draw(obstacle2);
-        window.draw(obstacle3);
+      //  window.draw(obstacle2);
+       // window.draw(obstacle3);
 
         window.display();
     }
@@ -128,7 +128,7 @@ void generate_obstacle(RectangleShape &object, float pos_x, float pos_y)
 
 }
 
-Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos)
+Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_pos)
 {
 
     if (((g_pos.x-pl_pos.x)>-5.0f)&&((g_pos.y-pl_pos.y)>-5.0f))
@@ -151,9 +151,29 @@ Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos)
 
 
         Vector2f output;
+
         output.x=result.x/(lenght*10);
         output.y=result.y/(lenght*10);
 
+        float colision_x=((pl_pos.x+7.5f)-(ob_pos.x+12.5f));
+        float colision_y=((pl_pos.y+7.5f)-(ob_pos.y+12.5f));
+
+
+          if((fabs(colision_x))<40.0f&&(fabs(colision_y))<40.0f)
+        {
+
+            if((fabs(colision_y))>(fabs(colision_x)))
+            {
+                output.y=0.0f;
+                return output;
+            }
+            else{
+            output.x=0.0f;
+            return output;
+            }
+
+            return output;
+        }
 
         return output;
 
