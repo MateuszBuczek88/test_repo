@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1548877955 source:/home/mateusz/cpp/code_blocks/SFMLtest/main.cpp
+1548932097 source:/home/mateusz/cpp/code_blocks/SFMLtest/main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 	<iostream>
 	"Player.h"
 	"Goal.h"
 	"Obsticle.h"
+	<math.h>
 
-1548877759 /home/mateusz/cpp/code_blocks/SFMLtest/include/Player.h
+1548927231 /home/mateusz/cpp/code_blocks/SFMLtest/include/Player.h
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 	<iostream>

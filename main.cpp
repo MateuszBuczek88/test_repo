@@ -4,12 +4,14 @@
 #include "Player.h"
 #include "Goal.h"
 #include "Obsticle.h"
+#include <math.h>
 
 
 using namespace std;
 using namespace sf;
 
 void generate_obstacle(RectangleShape &object, float pos_x, float pos_y);
+Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos);
 
 int main()
 {
@@ -23,7 +25,7 @@ int main()
     sf:: CircleShape goal(25.f);
 
     goal.setFillColor(sf::Color::Blue);
-    goal.setPosition(250.0f, 450.0f);
+    goal.setPosition(250.0f, 400.0f);
 
     sf::RectangleShape obstacle(Vector2f(25,25));
 
@@ -59,9 +61,16 @@ int main()
                 {
                 case sf::Keyboard::Key::A:
                 {
-                    Vector2f position = player.getPosition();
+                    Vector2f position = goal.getPosition();
+                    position.x -= 10.0f;
+                    goal.setPosition(position);
+                    break;
+                }
+                case sf::Keyboard::Key::D:
+                {
+                    Vector2f position = goal.getPosition();
                     position.x += 10.0f;
-                    player.setPosition(position);
+                    goal.setPosition(position);
                     break;
                 }
                 }
@@ -78,9 +87,11 @@ int main()
 
 
         window.display();
-        Player p1(player.getPosition());
-    p1.new_pos(goal.getPosition());
-        player.setPosition(p1.player_pos);
+
+        // Player p1(player.getPosition());
+        //p1.new_pos(goal.getPosition());
+        player.move(calc_dir(player.getPosition(),goal.getPosition()));
+
         window.clear();
 
         window.draw(player);
@@ -93,7 +104,7 @@ int main()
     }
 
 
-
+//  calc_dir(player.getPosition(),goal.getPosition());
     return 0;
 }
 
@@ -114,6 +125,45 @@ void generate_obstacle(RectangleShape &object, float pos_x, float pos_y)
     object.setFillColor(Color::Yellow);
     object.setPosition(pos_x, pos_y);
 
+
+}
+
+Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos)
+{
+
+    if (((g_pos.x-pl_pos.x)>-5.0f)&&((g_pos.y-pl_pos.y)>-5.0f))
+    {
+        float lenght;
+
+
+        Vector2f result;
+
+        result = g_pos - pl_pos;
+
+
+        result.x=fabs(result.x);
+        result.y=fabs(result.y);
+
+
+
+        lenght=sqrtf(fabs((powf(result.x,2)-powf(result.y,2))));
+        // cout <<lenght;
+
+
+        Vector2f output;
+        output.x=result.x/(lenght*10);
+        output.y=result.y/(lenght*10);
+
+
+        return output;
+
+    }
+    else
+
+    {
+          Vector2f v4(0.0f,0.0f);
+          return v4;
+    }
 
 }
 // https://www.sfml-dev.org/documentation/2.5.1/modules.php

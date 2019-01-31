@@ -21,6 +21,7 @@ public:
     void new_pos(Vector2f goal_pos);
 
 
+
 };
 
 #endif // PLAYER_H
