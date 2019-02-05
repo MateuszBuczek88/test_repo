@@ -5,6 +5,7 @@
 #include "Goal.h"
 #include "Obsticle.h"
 #include <math.h>
+#include <complex>
 
 
 using namespace std;
@@ -25,12 +26,14 @@ int main()
     sf:: CircleShape goal(25.f);
 
     goal.setFillColor(sf::Color::Blue);
-    goal.setPosition(250.0f, 400.0f);
+    goal.setPosition(300.0f, 400.0f);
 
-    sf::RectangleShape obstacle(Vector2f(25,25));
+    sf::RectangleShape obstacle;
 
-    obstacle.setPosition(90.0f,200.0f);
-    obstacle.setFillColor(Color::Yellow);
+
+  //  obstacle.setPosition(90.0f,200.0f);
+   // obstacle.setFillColor(Color::Yellow);
+    generate_obstacle(obstacle,90.0f,200.0f);
 
     RectangleShape obstacle2;
     generate_obstacle(obstacle2,200.0f,200.0f);
@@ -44,7 +47,6 @@ int main()
 
 
 
-    ;
 
 
 
@@ -62,14 +64,32 @@ int main()
                 case sf::Keyboard::Key::A:
                 {
                     Vector2f position = goal.getPosition();
+
                     position.x -= 10.0f;
                     goal.setPosition(position);
+
                     break;
                 }
                 case sf::Keyboard::Key::D:
                 {
                     Vector2f position = goal.getPosition();
                     position.x += 10.0f;
+                    goal.setPosition(position);
+
+                    break;
+
+                }
+                  case sf::Keyboard::Key::W:
+                {
+                    Vector2f position = goal.getPosition();
+                    position.y -= 10.0f;
+                    goal.setPosition(position);
+                    break;
+                }
+                  case sf::Keyboard::Key::S:
+                {
+                    Vector2f position = goal.getPosition();
+                    position.y += 10.0f;
                     goal.setPosition(position);
                     break;
                 }
@@ -103,7 +123,6 @@ int main()
         window.display();
     }
 
-
 //  calc_dir(player.getPosition(),goal.getPosition());
     return 0;
 }
@@ -120,18 +139,16 @@ int main()
 void generate_obstacle(RectangleShape &object, float pos_x, float pos_y)
 {
 
-
     object.setSize(sf::Vector2f(25,25));
     object.setFillColor(Color::Yellow);
     object.setPosition(pos_x, pos_y);
-
 
 }
 
 Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_pos)
 {
 
-    if (((g_pos.x-pl_pos.x)>-5.0f)&&((g_pos.y-pl_pos.y)>-5.0f))
+    if ((g_pos.x!=pl_pos.x)&&(g_pos.y!=pl_pos.y))
     {
         float lenght;
 
@@ -140,15 +157,7 @@ Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_pos)
 
         result = g_pos - pl_pos;
 
-
-        result.x=fabs(result.x);
-        result.y=fabs(result.y);
-
-
-
-        lenght=sqrtf(fabs((powf(result.x,2)-powf(result.y,2))));
-        // cout <<lenght;
-
+        lenght=sqrtf(powf(result.x,2)+powf(result.y,2));
 
         Vector2f output;
 
@@ -186,5 +195,5 @@ Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_pos)
     }
 
 }
-// https://www.sfml-dev.org/documentation/2.5.1/modules.php
+
 
