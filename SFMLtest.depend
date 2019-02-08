@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1549308213 source:/home/mateusz/cpp/code_blocks/SFMLtest/main.cpp
+1549654828 source:/home/mateusz/cpp/code_blocks/SFMLtest/main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 	<iostream>
@@ -8,6 +8,11 @@
 	"Obsticle.h"
 	<math.h>
 	<complex>
+	"Scene.h"
+	"Robot.h"
+	"Target.h"
+	<chrono>
+	<ctime>
 
 1548927231 /home/mateusz/cpp/code_blocks/SFMLtest/include/Player.h
 	<SFML/Graphics.hpp>
@@ -19,20 +24,56 @@
 	<SFML/Config.hpp>
 	<iostream>
 
-1548872475 /home/mateusz/cpp/code_blocks/SFMLtest/include/Obsticle.h
-	<iostream>
+1549646829 /home/mateusz/cpp/code_blocks/SFMLtest/include/Obsticle.h
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
 
 1548876832 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Goal.cpp
 	"Goal.h"
 	<iostream>
 
-1548872474 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Obsticle.cpp
+1549647033 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Obsticle.cpp
 	"Obsticle.h"
 	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
 
 1548877955 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Player.cpp
 	"Player.h"
 	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
+
+1549646535 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Scene.cpp
+	<iostream>
+	"Scene.h"
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
+
+1549646147 /home/mateusz/cpp/code_blocks/SFMLtest/include/Scene.h
+	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
+	"Robot.h"
+	"Target.h"
+
+1549655022 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Robot.cpp
+	"Robot.h"
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
+	<iostream>
+
+1549653756 /home/mateusz/cpp/code_blocks/SFMLtest/include/Robot.h
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
+	"Target.h"
+
+1549644113 /home/mateusz/cpp/code_blocks/SFMLtest/include/Target.h
+	<SFML/Graphics.hpp>
+	<SFML/Config.hpp>
+
+1549646615 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Target.cpp
+	"Target.h"
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 

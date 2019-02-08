@@ -6,52 +6,42 @@
 #include "Obsticle.h"
 #include <math.h>
 #include <complex>
+#include "Scene.h"
+#include "Robot.h"
+#include "Target.h"
+#include <chrono>
+#include <ctime>
 
 
 using namespace std;
 using namespace sf;
 
+
 void generate_obstacle(RectangleShape &object, float pos_x, float pos_y);
 Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_post);
 
 int main()
+
 {
+
+
+
+    Robot r1(Vector2f(1.4f,10.f));
+    Obsticle o1(Vector2f(300.f,300.f));
+    Target t1(Vector2f(100.f,100.f));
+    r1.setTarget(&t1);
+
+
     RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
 
-    sf::CircleShape player(15.f);
-
-    player.setFillColor(sf::Color::Red);
-    player.setPosition(0.0f, 0.0f);
-
-    sf:: CircleShape goal(25.f);
-
-    goal.setFillColor(sf::Color::Blue);
-    goal.setPosition(300.0f, 400.0f);
-
-    sf::RectangleShape obstacle;
-
-
-  //  obstacle.setPosition(90.0f,200.0f);
-   // obstacle.setFillColor(Color::Yellow);
-    generate_obstacle(obstacle,90.0f,200.0f);
-
-    RectangleShape obstacle2;
-    generate_obstacle(obstacle2,200.0f,200.0f);
-
-    RectangleShape obstacle3;
-    generate_obstacle(obstacle3,120.0f,230.0f);
-
-    RectangleShape obstacle4;
-
-
-
-
-
-
+    float deltaTime;
 
 
     while (window.isOpen())
     {
+    auto start = std::chrono::system_clock::now();
+    std::chrono::duration<float> time_RES;
+
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -63,67 +53,75 @@ int main()
                 {
                 case sf::Keyboard::Key::A:
                 {
-                    Vector2f position = goal.getPosition();
+                    Vector2f position = t1.getPosition();
 
                     position.x -= 10.0f;
-                    goal.setPosition(position);
+                    t1.setPosition(position);
 
                     break;
                 }
                 case sf::Keyboard::Key::D:
                 {
-                    Vector2f position = goal.getPosition();
+                    Vector2f position = t1.getPosition();
                     position.x += 10.0f;
-                    goal.setPosition(position);
+                    t1.setPosition(position);
 
                     break;
 
                 }
-                  case sf::Keyboard::Key::W:
+                case sf::Keyboard::Key::W:
                 {
-                    Vector2f position = goal.getPosition();
+                    Vector2f position = t1.getPosition();
                     position.y -= 10.0f;
-                    goal.setPosition(position);
+                    t1.setPosition(position);
                     break;
                 }
-                  case sf::Keyboard::Key::S:
+                case sf::Keyboard::Key::S:
                 {
-                    Vector2f position = goal.getPosition();
+                    Vector2f position = t1.getPosition();
                     position.y += 10.0f;
-                    goal.setPosition(position);
+                    t1.setPosition(position);
                     break;
                 }
                 }
             }
         }
 
+
+
         window.clear(Color::Black);
 
-        window.draw(player);
-        window.draw(goal);
-        window.draw(obstacle);
-     //  window.draw(obstacle2);
-      //  window.draw(obstacle3);
-
+        window.draw(r1);
+        window.draw(t1);
+        window.draw(o1);
 
         window.display();
 
-        // Player p1(player.getPosition());
-        //p1.new_pos(goal.getPosition());
-        player.move(calc_dir(player.getPosition(),goal.getPosition(),obstacle.getPosition()));
+
+        r1.update(deltaTime);
+
 
         window.clear();
 
-        window.draw(player);
-        window.draw(goal);
-        window.draw(obstacle);
-      //  window.draw(obstacle2);
-       // window.draw(obstacle3);
+        window.draw(r1);
+        window.draw(t1);
+        window.draw(o1);
+
 
         window.display();
+        auto end = std::chrono::system_clock::now();
+        time_RES = end-start;
+        deltaTime=time_RES.count();
     }
 
-//  calc_dir(player.getPosition(),goal.getPosition());
+
+
+
+
+
+
+
+
     return 0;
 }
 
@@ -142,57 +140,6 @@ void generate_obstacle(RectangleShape &object, float pos_x, float pos_y)
     object.setSize(sf::Vector2f(25,25));
     object.setFillColor(Color::Yellow);
     object.setPosition(pos_x, pos_y);
-
-}
-
-Vector2f calc_dir(Vector2f pl_pos, Vector2f g_pos, Vector2f ob_pos)
-{
-
-    if ((g_pos.x!=pl_pos.x)&&(g_pos.y!=pl_pos.y))
-    {
-        float lenght;
-
-
-        Vector2f result;
-
-        result = g_pos - pl_pos;
-
-        lenght=sqrtf(powf(result.x,2)+powf(result.y,2));
-
-        Vector2f output;
-
-        output.x=result.x/(lenght*10);
-        output.y=result.y/(lenght*10);
-
-        float colision_x=((pl_pos.x+7.5f)-(ob_pos.x+12.5f));
-        float colision_y=((pl_pos.y+7.5f)-(ob_pos.y+12.5f));
-
-
-          if((fabs(colision_x))<40.0f&&(fabs(colision_y))<40.0f)
-        {
-
-            if((fabs(colision_y))>(fabs(colision_x)))
-            {
-                output.y=0.0f;
-                return output;
-            }
-            else{
-            output.x=0.0f;
-            return output;
-            }
-
-            return output;
-        }
-
-        return output;
-
-    }
-    else
-
-    {
-          Vector2f v4(0.0f,0.0f);
-          return v4;
-    }
 
 }
 

@@ -1,13 +1,15 @@
 #ifndef OBSTICLE_H
 #define OBSTICLE_H
-#include <iostream>
+#include <SFML/Graphics.hpp>
+#include <SFML/Config.hpp>
 using namespace std;
+using namespace sf;
 
 
-class Obsticle
+class Obsticle : public RectangleShape
 {
     public:
-        Obsticle();
+        Obsticle(Vector2f O_pos);
         virtual ~Obsticle();
 
     protected:
