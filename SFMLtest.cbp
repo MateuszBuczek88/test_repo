@@ -39,12 +39,14 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Robot.h" />
 		<Unit filename="include/Scene.h" />
+		<Unit filename="include/Target.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Goal.cpp" />
 		<Unit filename="src/Obsticle.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Robot.cpp" />
 		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/Target.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -10,17 +10,17 @@ using namespace sf;
 
 class Robot : public CircleShape
 {
-    public:
+public:
 
-          Robot(Vector2f IN_pos);
-            Robot();
+    Robot(Vector2f IN_pos);
+    Robot();
 
 
 
-  void update(float deltaTime);
-  void setTarget(Target* target);
-private:
-  Target* c_target;
+    void update(float deltaTime);
+    void setTarget(Target* target);
+
+    Target* c_target;
 
 
 

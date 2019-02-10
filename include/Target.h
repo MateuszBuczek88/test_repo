@@ -10,6 +10,7 @@ class Target :  public CircleShape
 {
     public:
         Target(Vector2f T_pos);
+        Target();
         virtual ~Target();
 
     protected:

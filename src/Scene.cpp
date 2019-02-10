@@ -21,12 +21,10 @@ Scene::~Scene()
     //dtor
 }
 
-void draw(Robot r, Target t)
-{
 
-}
 
 void  Scene::	draw (RenderTarget &target, RenderStates states) const
 {
-//c_robot.draw(target,states);
+  target.draw(c_robot,states);
+  target.draw(c_target,states);
 }

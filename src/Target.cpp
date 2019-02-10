@@ -10,6 +10,9 @@ Target::Target(Vector2f T_pos)
     setRadius(25.f);
     setFillColor(Color::Green);
 }
+Target::Target()
+{
+}
 
 Target::~Target()
 {

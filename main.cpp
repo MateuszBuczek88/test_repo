@@ -24,11 +24,10 @@ int main()
 
 {
 
+    Target t1   (Vector2f(100.f,100.f));
+    Robot r1    (Vector2f(1.4f,10.f));
+    Obsticle o1 (Vector2f(300.f,300.f));
 
-
-    Robot r1(Vector2f(1.4f,10.f));
-    Obsticle o1(Vector2f(300.f,300.f));
-    Target t1(Vector2f(100.f,100.f));
     r1.setTarget(&t1);
 
 
@@ -53,34 +52,24 @@ int main()
                 {
                 case sf::Keyboard::Key::A:
                 {
-                    Vector2f position = t1.getPosition();
-
-                    position.x -= 10.0f;
-                    t1.setPosition(position);
-
+                    t1.move(-10.f,0);
                     break;
                 }
                 case sf::Keyboard::Key::D:
                 {
-                    Vector2f position = t1.getPosition();
-                    position.x += 10.0f;
-                    t1.setPosition(position);
-
+                    t1.move(10.f,0);
                     break;
 
                 }
                 case sf::Keyboard::Key::W:
                 {
-                    Vector2f position = t1.getPosition();
-                    position.y -= 10.0f;
-                    t1.setPosition(position);
-                    break;
+                     t1.move(0,-10.f);
+                     break;
                 }
+
                 case sf::Keyboard::Key::S:
                 {
-                    Vector2f position = t1.getPosition();
-                    position.y += 10.0f;
-                    t1.setPosition(position);
+                    t1.move(0,10.f);
                     break;
                 }
                 }
@@ -88,59 +77,33 @@ int main()
         }
 
 
+        Scene s1(r1,t1);
 
         window.clear(Color::Black);
 
-        window.draw(r1);
-        window.draw(t1);
-        window.draw(o1);
+            window.draw(s1);
 
         window.display();
 
 
-        r1.update(deltaTime);
+            r1.update(deltaTime);
 
 
         window.clear();
 
-        window.draw(r1);
-        window.draw(t1);
-        window.draw(o1);
-
+            window.draw(s1);
 
         window.display();
+
         auto end = std::chrono::system_clock::now();
         time_RES = end-start;
         deltaTime=time_RES.count();
     }
 
 
-
-
-
-
-
-
-
     return 0;
 }
 
-/*    sf::Vertex line[] =
-       {
-           sf::Vertex(sf::Vector2f(10, 10)),
-           sf::Vertex(sf::Vector2f(150, 150)),
-           sf::Vertex(sf::Vector2f(190, 150))
-       };
 
-      window.draw(line, 3, sf::LinesStrip); */
-
-void generate_obstacle(RectangleShape &object, float pos_x, float pos_y)
-{
-
-    object.setSize(sf::Vector2f(25,25));
-    object.setFillColor(Color::Yellow);
-    object.setPosition(pos_x, pos_y);
-
-}
 
 
