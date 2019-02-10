@@ -29,7 +29,7 @@ int main()
     Obsticle o1 (Vector2f(300.f,300.f));
 
     r1.setTarget(&t1);
-
+    Scene s1(&r1,&t1);
 
     RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
 
@@ -77,7 +77,7 @@ int main()
         }
 
 
-        Scene s1(r1,t1);
+
 
         window.clear(Color::Black);
 

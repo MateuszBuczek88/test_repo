@@ -14,15 +14,15 @@ class Scene : public Drawable
 public:
 
     Scene();
-    Scene(Robot & robot, Target & target);
+    Scene(Robot * robot, Target * target);
     ~Scene();
 
 
     virtual void 	draw (RenderTarget &target, RenderStates states) const;
 
 
-    Target c_target;
-    Robot c_robot;
+    Target* c_target;
+    Robot* c_robot;
 
 protected:
 

@@ -5,7 +5,7 @@
 using namespace std;
 using namespace sf;
 
-Scene::Scene(Robot & robot, Target & target)
+Scene::Scene(Robot* robot, Target* target)
 {
   c_robot=robot;
   c_target=target;
@@ -25,6 +25,6 @@ Scene::~Scene()
 
 void  Scene::	draw (RenderTarget &target, RenderStates states) const
 {
-  target.draw(c_robot,states);
-  target.draw(c_target,states);
+ target.draw(*c_robot,states);
+ target.draw(*c_target,states);
 }

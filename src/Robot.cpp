@@ -57,6 +57,6 @@ void Robot::update(float deltaTime)
         output.x=result.x*(deltaTime*50)/(lenght+1);
         output.y=result.y*(deltaTime*50)/(lenght+1);
 
-        move(output);
+       move(output);
         }
 }

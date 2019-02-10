@@ -20,7 +20,10 @@ public:
     void update(float deltaTime);
     void setTarget(Target* target);
 
+
+
     Target* c_target;
+    Vector2f direction;
 
 
 
