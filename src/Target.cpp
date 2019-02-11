@@ -1,6 +1,7 @@
 #include "Target.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
+
 using namespace std;
 using namespace sf;
 
@@ -16,5 +17,5 @@ Target::Target()
 
 Target::~Target()
 {
-    //dtor
+
 }

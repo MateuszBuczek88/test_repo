@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
+
 using namespace std;
 using namespace sf;
 
@@ -13,12 +14,11 @@ Scene::Scene(Robot* robot, Target* target)
 }
 Scene::Scene()
 {
-    //ctor
 }
 
 Scene::~Scene()
 {
-    //dtor
+
 }
 
 

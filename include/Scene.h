@@ -5,6 +5,7 @@
 #include <SFML/Config.hpp>
 #include "Robot.h"
 #include "Target.h"
+
 using namespace std;
 using namespace sf;
 

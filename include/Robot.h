@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
 #include "Target.h"
+
 using namespace std;
 using namespace sf;
 
@@ -12,7 +13,7 @@ class Robot : public CircleShape
 {
 public:
 
-    Robot(Vector2f IN_pos);
+    Robot(Vector2f IN_position);
     Robot();
 
 
