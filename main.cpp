@@ -33,7 +33,7 @@ int main()
 
     RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
 
-    float deltaTime;
+    float deltaTime=0;
 
 
     while (window.isOpen())
@@ -79,11 +79,7 @@ int main()
 
 
 
-        window.clear(Color::Black);
 
-            window.draw(s1);
-
-        window.display();
 
 
             r1.update(deltaTime);

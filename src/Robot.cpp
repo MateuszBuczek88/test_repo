@@ -34,7 +34,7 @@ void Robot::update(float deltaTime)
     pl_pos=getPosition();
     g_pos=c_target->getPosition();
 
-        if (pl_pos!=g_pos)
+        if (1)
         {
     cout <<pl_pos.x<<endl;
     cout <<pl_pos.y<<endl;
