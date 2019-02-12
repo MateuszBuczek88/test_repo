@@ -6,7 +6,6 @@
 #include <ctime>
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
-#include "Obsticle.h"
 #include "Scene.h"
 #include "Robot.h"
 #include "Target.h"
@@ -19,7 +18,6 @@ using sf::Keyboard;
 int main() {
     Target target(Vector2f(100.f, 100.f));
     Robot    robot(Vector2f(1.4f, 10.f));
-    Obsticle obstacle1(Vector2f(300.f, 300.f));
 
     robot.setTarget(&target);
 

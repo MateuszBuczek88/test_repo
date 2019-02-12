@@ -27,20 +27,20 @@ void Robot::update(float deltaTime) {
     robot_position = getPosition();
     target_position = c_target->getPosition();
 
-        float vector_lenght;
+    float vector_lenght;
 
-        Vector2f result;
+    Vector2f result;
 
-        result = target_position - robot_position;
+    result = target_position - robot_position;
 
-        vector_lenght = sqrtf(powf(result.x, 2)+powf(result.y, 2));
+    vector_lenght = sqrtf(powf(result.x, 2)+powf(result.y, 2));
 
-        Vector2f output;
+    Vector2f output;
 
-        output.x = result.x*(deltaTime*50)/(vector_lenght);
-        output.y = result.y*(deltaTime*50)/(vector_lenght);
+    output.x = result.x*(deltaTime*50)/(vector_lenght);
+    output.y = result.y*(deltaTime*50)/(vector_lenght);
 
-        if (abs(result.x) > 0.1f && abs(result.y) > 0.1f) {
+    if (abs(result.x) > 0.1f || abs(result.y) > 0.1f) {
         move(output);
         }
 }

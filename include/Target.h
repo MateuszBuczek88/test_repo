@@ -12,9 +12,6 @@ class Target :  public CircleShape {
  public:
         Target();
         explicit Target(Vector2f T_pos);
-
- protected:
- private:
 };
 
 #endif  // INCLUDE_TARGET_H_

@@ -24,8 +24,6 @@ class Scene : public Drawable {
  private:
     Target* c_target;
     Robot* c_robot;
-
- protected:
 };
 
 #endif  // INCLUDE_SCENE_H_
