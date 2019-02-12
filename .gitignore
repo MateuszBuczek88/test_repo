@@ -1,0 +1,7 @@
+/bin
+/obj
+main.o
+SFMLtest.depend
+SFMLtest.layout
+*.py
+main
