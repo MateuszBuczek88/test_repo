@@ -1,21 +1,20 @@
-#ifndef TARGET_H
-#define TARGET_H
+// "Copyright [2019] <Copyright MB>"
+#ifndef INCLUDE_TARGET_H_
+#define INCLUDE_TARGET_H_
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
-using namespace std;
-using namespace sf;
+
+using sf::CircleShape;
+using sf::Vector2f;
 
 
-class Target :  public CircleShape
-{
-    public:
-        Target(Vector2f T_pos);
+class Target :  public CircleShape {
+ public:
         Target();
-        virtual ~Target();
+        explicit Target(Vector2f T_pos);
 
-    protected:
-
-    private:
+ protected:
+ private:
 };
 
-#endif // TARGET_H
+#endif  // INCLUDE_TARGET_H_

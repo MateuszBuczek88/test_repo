@@ -1,21 +1,15 @@
+// "Copyright [2019] <Copyright MB>"
 #include "Target.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
 
-using namespace std;
-using namespace sf;
+using sf::Color;
 
-Target::Target(Vector2f T_pos)
-{
+Target::Target() {
+}
+
+Target::Target(Vector2f T_pos) {
     setPosition(T_pos);
     setRadius(25.f);
     setFillColor(Color::Green);
-}
-Target::Target()
-{
-}
-
-Target::~Target()
-{
-
 }

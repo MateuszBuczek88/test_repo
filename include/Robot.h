@@ -1,34 +1,24 @@
-#ifndef ROBOT_H
-#define ROBOT_H
+// "Copyright [2019] <Copyright MB>"
+#ifndef INCLUDE_ROBOT_H_
+#define INCLUDE_ROBOT_H_
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
 #include "Target.h"
 
-using namespace std;
-using namespace sf;
+using sf::CircleShape;
+using sf::Vector2f;
 
-
-
-class Robot : public CircleShape
-{
-public:
-
-    Robot(Vector2f IN_position);
+class Robot : public CircleShape {
+ public:
     Robot();
-
-
+    explicit Robot(Vector2f IN_position);
 
     void update(float deltaTime);
     void setTarget(Target* target);
 
-
-
+ private:
     Target* c_target;
     Vector2f direction;
-
-
-
-
 };
 
-#endif // ROBOT_H
+#endif  // INCLUDE_ROBOT_H_

@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1549913970 source:/home/mateusz/cpp/code_blocks/SFMLtest/main.cpp
+1549998763 source:/home/mateusz/cpp/code_blocks/SFMLtest/main.cpp
+	<math.h>
+	<iostream>
+	<complex>
+	<chrono>
+	<ctime>
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
-	<iostream>
 	"Obsticle.h"
-	<math.h>
-	<complex>
 	"Scene.h"
 	"Robot.h"
 	"Target.h"
-	<chrono>
-	<ctime>
 
 1548927231 /home/mateusz/cpp/code_blocks/SFMLtest/include/Player.h
 	<SFML/Graphics.hpp>
@@ -22,7 +22,7 @@
 	<SFML/Config.hpp>
 	<iostream>
 
-1549646829 /home/mateusz/cpp/code_blocks/SFMLtest/include/Obsticle.h
+1549998840 /home/mateusz/cpp/code_blocks/SFMLtest/include/Obsticle.h
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 
@@ -30,9 +30,9 @@
 	"Goal.h"
 	<iostream>
 
-1549647033 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Obsticle.cpp
-	"Obsticle.h"
+1549998842 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Obsticle.cpp
 	<iostream>
+	"Obsticle.h"
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 
@@ -42,35 +42,35 @@
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 
-1549913970 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Scene.cpp
+1549990504 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Scene.cpp
 	<iostream>
 	"Scene.h"
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 
-1549913889 /home/mateusz/cpp/code_blocks/SFMLtest/include/Scene.h
+1549998880 /home/mateusz/cpp/code_blocks/SFMLtest/include/Scene.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 	"Robot.h"
 	"Target.h"
 
-1549914898 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Robot.cpp
+1549993858 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Robot.cpp
+	<iostream>
 	"Robot.h"
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
-	<iostream>
 
-1549913970 /home/mateusz/cpp/code_blocks/SFMLtest/include/Robot.h
+1549993654 /home/mateusz/cpp/code_blocks/SFMLtest/include/Robot.h
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 	"Target.h"
 
-1549796856 /home/mateusz/cpp/code_blocks/SFMLtest/include/Target.h
+1549998914 /home/mateusz/cpp/code_blocks/SFMLtest/include/Target.h
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
 
-1549914180 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Target.cpp
+1549993011 source:/home/mateusz/cpp/code_blocks/SFMLtest/src/Target.cpp
 	"Target.h"
 	<SFML/Graphics.hpp>
 	<SFML/Config.hpp>
