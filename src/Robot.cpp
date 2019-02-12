@@ -42,5 +42,5 @@ void Robot::update(float deltaTime) {
 
     if (abs(result.x) > 0.1f || abs(result.y) > 0.1f) {
         move(output);
-        }
+    }
 }

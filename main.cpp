@@ -21,7 +21,7 @@ int main() {
 
     robot.setTarget(&target);
 
-    Scene scene1(&robot, &target);
+    Scene scene(&robot, &target);
 
     RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
 
@@ -72,7 +72,7 @@ int main() {
 
         window.clear();
 
-        window.draw(scene1);
+        window.draw(scene);
 
         window.display();
 
